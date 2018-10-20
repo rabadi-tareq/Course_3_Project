@@ -2,6 +2,7 @@
 # Loading Libraries ==============================================
 
 library(plyr)
+library(dplyr)
 #================================================================================================================================
 
 rm(list = ls())
@@ -41,6 +42,12 @@ meanColumns <- grep("mean",colnames(all))
 stdColumns <- grep("std",colnames(all))
 
 allT <- all[,combine(1,2,meanColumns,stdColumns)] 
+
+grouped <- group_by(allT,allT$ActivityName,allT$Subject)
+
+FinalSet <- aggregate(grouped[,3:81],by = list(grouped$ActivityName,grouped$Subject), FUN = mean)
+colnames(FinalSet)[1] <- "Activity"
+colnames(FinalSet)[2] <- "Subject"
 
 # End - Loading data into variables ==============================
 
