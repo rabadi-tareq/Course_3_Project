@@ -34,3 +34,7 @@
     for each variable for each activity for each subject.
 
 9.  The final data set’s name is “FinalSet”
+
+To Run the script and get the intended results, please make sure the
+run_analysis.R file is inside the data folder, please refer to the paths used in
+the script to infer where this file should be
